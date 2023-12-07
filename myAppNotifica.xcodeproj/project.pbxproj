@@ -25,6 +25,9 @@
 		D0E446C52B0B8891003E8809 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E446C42B0B8891003E8809 /* LoginCoordinator.swift */; };
 		D0E446C82B0B8997003E8809 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E446C72B0B8997003E8809 /* LoginView.swift */; };
 		D0E446CA2B0B89A4003E8809 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E446C92B0B89A4003E8809 /* LoginViewController.swift */; };
+		F9B3C3272B220DDE0032B4D5 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B3C3262B220DDE0032B4D5 /* RegisterView.swift */; };
+		F9B3C3292B220DF00032B4D5 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B3C3282B220DF00032B4D5 /* RegisterViewController.swift */; };
+		F9B3C32C2B220E180032B4D5 /* RegisterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B3C32B2B220E180032B4D5 /* RegisterCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,9 @@
 		D0E446C42B0B8891003E8809 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		D0E446C72B0B8997003E8809 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D0E446C92B0B89A4003E8809 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F9B3C3262B220DDE0032B4D5 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		F9B3C3282B220DF00032B4D5 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		F9B3C32B2B220E180032B4D5 /* RegisterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,9 +142,11 @@
 		D0E4468F2B0B80E2003E8809 /* myAppNotifica */ = {
 			isa = PBXGroup;
 			children = (
+				F9B3C3252B220DC50032B4D5 /* Register */,
+				D0E446C12B0B867E003E8809 /* Coordinator */,
 				D0DF46052B1A170500F26CAB /* Infrastructure */,
 				D0DF46022B1A109300F26CAB /* Extension */,
-				D0E446C62B0B8985003E8809 /* Controller */,
+				D0E446C62B0B8985003E8809 /* Login */,
 				D0E446C02B0B85C0003E8809 /* Resource */,
 				D0E4469E2B0B80E6003E8809 /* Info.plist */,
 			);
@@ -171,7 +179,6 @@
 				D0E446962B0B80E2003E8809 /* Main.storyboard */,
 				D0E446992B0B80E6003E8809 /* Assets.xcassets */,
 				D0E4469B2B0B80E6003E8809 /* LaunchScreen.storyboard */,
-				D0E446C12B0B867E003E8809 /* Coordinator */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -180,18 +187,28 @@
 			isa = PBXGroup;
 			children = (
 				D0E446C22B0B8864003E8809 /* Coordinator.swift */,
-				D0E446C42B0B8891003E8809 /* LoginCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		D0E446C62B0B8985003E8809 /* Controller */ = {
+		D0E446C62B0B8985003E8809 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				D0E446C42B0B8891003E8809 /* LoginCoordinator.swift */,
 				D0E446C72B0B8997003E8809 /* LoginView.swift */,
 				D0E446C92B0B89A4003E8809 /* LoginViewController.swift */,
 			);
-			path = Controller;
+			path = Login;
+			sourceTree = "<group>";
+		};
+		F9B3C3252B220DC50032B4D5 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				F9B3C3262B220DDE0032B4D5 /* RegisterView.swift */,
+				F9B3C3282B220DF00032B4D5 /* RegisterViewController.swift */,
+				F9B3C32B2B220E180032B4D5 /* RegisterCoordinator.swift */,
+			);
+			path = Register;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,16 +344,19 @@
 			files = (
 				D0E446CA2B0B89A4003E8809 /* LoginViewController.swift in Sources */,
 				D0DF46042B1A10A900F26CAB /* UIColor+.swift in Sources */,
+				F9B3C3272B220DDE0032B4D5 /* RegisterView.swift in Sources */,
 				D0E446C82B0B8997003E8809 /* LoginView.swift in Sources */,
 				D0E446C32B0B8864003E8809 /* Coordinator.swift in Sources */,
 				D0DF460A2B1A186D00F26CAB /* LabelDefault.swift in Sources */,
 				D0E446952B0B80E2003E8809 /* ViewController.swift in Sources */,
 				D0DF46072B1A171600F26CAB /* ImageDefault.swift in Sources */,
 				D0DF460E2B1A21C300F26CAB /* ButtonDefault.swift in Sources */,
+				F9B3C3292B220DF00032B4D5 /* RegisterViewController.swift in Sources */,
 				D0DF460C2B1A197100F26CAB /* TextFieldDefault.swift in Sources */,
 				D0E446C52B0B8891003E8809 /* LoginCoordinator.swift in Sources */,
 				D0E446912B0B80E2003E8809 /* AppDelegate.swift in Sources */,
 				D0E446932B0B80E2003E8809 /* SceneDelegate.swift in Sources */,
+				F9B3C32C2B220E180032B4D5 /* RegisterCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +545,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -552,6 +573,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

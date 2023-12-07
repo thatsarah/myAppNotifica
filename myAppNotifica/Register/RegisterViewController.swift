@@ -1,25 +1,17 @@
-//
-//  LoginViewController.swift
-//  myAppNotifica
-//
-//  Created by IFB-BIOTIC-08 on 20/11/23.
-//
-
 import UIKit
 
-class LoginViewController: UIViewController {
+class RegisterViewController: UIViewController {
     
-    var viewMain = LoginView {
+   // var viewMain = LoginView {
         
         override func loadView() {
-            self.view = viewMain
+            self.view = RegisterView()
         }
         
         override func viewDidLoad() {
             super.viewDidLoad()
-            self.title = "LOGAR"
+            self.title = "REGISTRAR"
             self.navigationController?.navigationBar.prefersLargeTitles = true
         }
         
     }
-}
