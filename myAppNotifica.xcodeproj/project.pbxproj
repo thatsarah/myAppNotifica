@@ -177,8 +177,8 @@
 				D0E446922B0B80E2003E8809 /* SceneDelegate.swift */,
 				D0E446942B0B80E2003E8809 /* ViewController.swift */,
 				D0E446962B0B80E2003E8809 /* Main.storyboard */,
-				D0E446992B0B80E6003E8809 /* Assets.xcassets */,
 				D0E4469B2B0B80E6003E8809 /* LaunchScreen.storyboard */,
+				D0E446992B0B80E6003E8809 /* Assets.xcassets */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
