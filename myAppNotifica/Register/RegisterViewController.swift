@@ -16,11 +16,14 @@ class RegisterViewController: UIViewController {
             self.title = "REGISTRAR"
             self.navigationController?.navigationBar.prefersLargeTitles = true
             registerView.buttonLogar.addTarget(self, action: #selector(goToLogin), for: .touchUpInside)
+            self.navigationItem.setHidesBackButton(true, animated: false)
 
         }
         
     @objc private func goToLogin() {
-        goToLoginHandler?()      
+       // goToLoginHandler?()    
+        
+        self.navigationController?.popViewController(animated: true)
     }
     
     }
