@@ -15,9 +15,20 @@ class RegisterView: UIView {
     }
     
     var registerLabel = LabelDefault(text: "Entre com seu e-mail e senha para se registrar")
-    var emailTextField = TextFieldDefault(text: "E-mail")
-    var passwordTextField = TextFieldDefault(text: "Senha")
-    var confirmTextField = TextFieldDefault(text: "Confirmar senha")
+    var emailTextField = TextFieldDefault(placeholder: "E-mail", keyboardType: .emailAddress, returnKeyType: .next)
+    var passwordTextField: TextFieldDefault = {
+        let text = TextFieldDefault(placeholder: "Senha", keyboardType: .emailAddress, returnKeyType: .next)
+        text.isSecureTextEntry = true
+        
+        return text
+    }()
+    var confirmTextField: TextFieldDefault = {
+        let text = TextFieldDefault(placeholder: "Confirme sua senha", keyboardType: .emailAddress, returnKeyType: .next)
+        text.isSecureTextEntry = true
+        
+        return text
+    }()
+    
     var buttonLogar = ButtonDefault(text: "LOGAR")
     var buttonRegistrar = ButtonDefault(text: "REGISTRAR")
     
@@ -71,5 +82,17 @@ class RegisterView: UIView {
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    extension RegisterView: UITextFieldDelegate { 
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            if textField == emailTextField {
+                self.passwordTextField.becomeFirstResponder()
+            } else if textField == passwordTextField { 
+                confirmTextField.becomeFirstResponder()
+            } else {
+                textField.resignFirstResponder()
+            }
+            return true
+        }
     }
 }

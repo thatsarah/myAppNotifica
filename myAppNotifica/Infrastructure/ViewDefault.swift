@@ -2,7 +2,24 @@
 //  ViewDefault.swift
 //  myAppNotifica
 //
-//  Created by IFB-BIOTIC-08 on 11/12/23.
+//  Created by Sarah Rodrigues on 12/12/23.
 //
 
-import Foundation
+import UIKit
+
+class ViewDefault: UIView {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.backgroundColor = .viewBackgroundColor
+        setUpVisualElements()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setUpVisualElements() {
+        
+    }
+}

@@ -1,6 +1,6 @@
 import UIKit
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: ViewControllerDefault {
     
     let registerView = RegisterView()
     var goToLoginHandler: (() -> Void)?
@@ -14,10 +14,7 @@ class RegisterViewController: UIViewController {
         override func viewDidLoad() {
             super.viewDidLoad()
             self.title = "REGISTRAR"
-            self.navigationController?.navigationBar.prefersLargeTitles = true
             registerView.buttonLogar.addTarget(self, action: #selector(goToLogin), for: .touchUpInside)
-            self.navigationItem.setHidesBackButton(true, animated: false)
-
         }
         
     @objc private func goToLogin() {

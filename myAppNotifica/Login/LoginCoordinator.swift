@@ -16,9 +16,15 @@ class LoginCoordinator: Coordinator {
     
     func start() {
         let registerCoordinator = RegisterCoordinator(navigationController: self.navigationController)
+        let homeCoordinator = HomeCoordinator(navigationController: self.navigationController)
         let viewController = LoginViewController()
+        
         viewController.goToRegisterHandler = {
             registerCoordinator.start()
+        }
+        
+        viewController.goToHomeHandler = {
+            homeCoordinator.start()
             
         }
         self.navigationController.pushViewController(viewController, animated: true)

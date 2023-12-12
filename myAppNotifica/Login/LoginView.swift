@@ -16,16 +16,23 @@ class LoginView: UIView {
     
     var imageLogin = ImageDefault(image: "LoginImage")
     var imageLabel = LabelDefault(text: "Registre e gerencie as ocorrências do seu IF")
-    var emailTextField = TextFieldDefault(text: "E-mail")
-    var senhaTextField = TextFieldDefault(text: "Senha")
+    var emailTextField = TextFieldDefault(placeholder: "E-mail", keyboardType: .emailAddress, returnKeyType: .next)
+    var passwordTextField: TextFieldDefault = {
+        let text = TextFieldDefault(placeholder: "Senha", keyboardType: .emailAddress, returnKeyType: .next)
+        text.isSecureTextEntry = true
+        
+        return text
+    }()
     var buttonLogar = ButtonDefault(text: "LOGAR")
     var buttonRegistrar = ButtonDefault(text: "REGISTRAR")
     
     func setUpVisualElements() {
+        passwordTextField.delegate = self
+        emailTextField.delegate = self
         self.addSubview(imageLogin)
         self.addSubview(imageLabel)
         self.addSubview(emailTextField)
-        self.addSubview(senhaTextField)
+        self.addSubview(passwordTextField)
         self.addSubview(buttonLogar)
         self.addSubview(buttonRegistrar)
 
@@ -49,15 +56,15 @@ class LoginView: UIView {
             emailTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             emailTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
         
-            senhaTextField.widthAnchor.constraint(equalToConstant: 374),
-            senhaTextField.heightAnchor.constraint(equalToConstant: 60),
-            senhaTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 23),
-            senhaTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            senhaTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            passwordTextField.widthAnchor.constraint(equalToConstant: 374),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 60),
+            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 23),
+            passwordTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            passwordTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             
             buttonLogar.widthAnchor.constraint(equalToConstant: 374),
             buttonLogar.heightAnchor.constraint(equalToConstant: 60),
-            buttonLogar.topAnchor.constraint(equalTo: senhaTextField.bottomAnchor, constant: 25),
+            buttonLogar.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 25),
             buttonLogar.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             buttonLogar.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             
@@ -70,5 +77,16 @@ class LoginView: UIView {
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    extension LoginView: UITextFieldDelegate { 
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            if textField == emailTextField {
+                self.passwordTextField.becomeFirstResponder()
+            } else { 
+                textField.resignFirstResponder()
+            }
+            return true
+        }
     }
 }

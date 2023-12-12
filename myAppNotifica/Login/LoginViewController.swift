@@ -7,27 +7,35 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
-    
-    let loginView = LoginView()
+class LoginViewController: ViewControllerDefault {
     
     var goToRegisterHandler: (() -> Void)?
-    
-    // var viewMain = LoginView {
+    var goToHomeHandler: (() -> Void)?
+        
+    let loginView = LoginView()
     
     override func loadView() {
         self.view = loginView
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.title = "LOGAR"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        loginView.buttonRegistrar.addTarget(self, action: #selector(goToRegister), for: .touchUpInside)
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            self.title = "Logar"
+            loginView.buttonRegistrar.addTarget(self, action: #selector(goToRegister), for: .touchUpInside)
+            loginView.buttonLogar.addTarget(self, action: #selector(goToHome), for: .touchUpInside)
+            
+        }
+        
+        @objc private func goToRegister() {
+            goToRegisterHandler?()
+        }
+        
+        @objc private func goToHome() {
+            goToHomeHandler?()
+        }
     }
     
-    @objc private func goToRegister() {
-        goToRegisterHandler?()
-    }
-}
+
+    
+
 
