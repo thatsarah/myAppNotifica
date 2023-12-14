@@ -23,7 +23,7 @@ class RegisterView: UIView {
         return text
     }()
     var confirmTextField: TextFieldDefault = {
-        let text = TextFieldDefault(placeholder: "Confirme sua senha", keyboardType: .emailAddress, returnKeyType: .next)
+        let text = TextFieldDefault(placeholder: "Confirme sua senha", keyboardType: .emailAddress, returnKeyType: .done)
         text.isSecureTextEntry = true
         
         return text
@@ -39,22 +39,22 @@ class RegisterView: UIView {
         self.addSubview(confirmTextField)
         self.addSubview(buttonLogar)
         self.addSubview(buttonRegistrar)
-
-
+        
+        
         NSLayoutConstraint.activate([
             
-
+            
             registerLabel.widthAnchor.constraint(equalToConstant: 100),
             registerLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 220),
             registerLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
             registerLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-
+            
             emailTextField.widthAnchor.constraint(equalToConstant: 374),
             emailTextField.heightAnchor.constraint(equalToConstant: 60),
             emailTextField.topAnchor.constraint(equalTo: registerLabel.bottomAnchor, constant: 70),
             emailTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             emailTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-        
+            
             passwordTextField.widthAnchor.constraint(equalToConstant: 374),
             passwordTextField.heightAnchor.constraint(equalToConstant: 60),
             passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 23),
@@ -83,16 +83,19 @@ class RegisterView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    extension RegisterView: UITextFieldDelegate { 
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            if textField == emailTextField {
-                self.passwordTextField.becomeFirstResponder()
-            } else if textField == passwordTextField { 
-                confirmTextField.becomeFirstResponder()
-            } else {
-                textField.resignFirstResponder()
-            }
-            return true
+    
+}
+
+extension RegisterView: UITextFieldDelegate { 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailTextField {
+            self.passwordTextField.becomeFirstResponder()
+        } else if textField == passwordTextField { 
+            confirmTextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
         }
+        return true
     }
+    
 }

@@ -14,11 +14,11 @@ class LoginView: UIView {
         setUpVisualElements()
     }
     
-    var imageLogin = ImageDefault(image: "LoginImage")
+    var imageLogin = ImageDefault(image: "logoImage")
     var imageLabel = LabelDefault(text: "Registre e gerencie as ocorrências do seu IF")
     var emailTextField = TextFieldDefault(placeholder: "E-mail", keyboardType: .emailAddress, returnKeyType: .next)
     var passwordTextField: TextFieldDefault = {
-        let text = TextFieldDefault(placeholder: "Senha", keyboardType: .emailAddress, returnKeyType: .next)
+        let text = TextFieldDefault(placeholder: "Senha", keyboardType: .emailAddress, returnKeyType: .done)
         text.isSecureTextEntry = true
         
         return text
@@ -79,14 +79,17 @@ class LoginView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    extension LoginView: UITextFieldDelegate { 
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            if textField == emailTextField {
-                self.passwordTextField.becomeFirstResponder()
-            } else { 
-                textField.resignFirstResponder()
-            }
-            return true
-        }
+   
     }
+
+extension LoginView: UITextFieldDelegate { 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailTextField {
+            self.passwordTextField.becomeFirstResponder()
+        } else { 
+            textField.resignFirstResponder()
+        }
+        return true
+    }
+    
 }
