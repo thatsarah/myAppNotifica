@@ -24,8 +24,7 @@ class LoginCoordinator: Coordinator {
         }
         
         viewController.goToHomeHandler = {
-            homeCoordinator.start()
-            
+            self.goToHome()            
         }
         self.navigationController.pushViewController(viewController, animated: true)
         
@@ -35,7 +34,7 @@ class LoginCoordinator: Coordinator {
             let coordinator = RegisterCoordinator(navigationController: navigationController)
             coordinator.start()
         }
-            func  gotoHome() {
+            func  goToHome() {
                let coordinator = TabBarCoordinator(navigationController: navigationController)
                 coordinator.start()
             }

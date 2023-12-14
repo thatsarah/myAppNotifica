@@ -43,6 +43,8 @@
 		F9B3C3272B220DDE0032B4D5 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B3C3262B220DDE0032B4D5 /* RegisterView.swift */; };
 		F9B3C3292B220DF00032B4D5 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B3C3282B220DF00032B4D5 /* RegisterViewController.swift */; };
 		F9B3C32C2B220E180032B4D5 /* RegisterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B3C32B2B220E180032B4D5 /* RegisterCoordinator.swift */; };
+		F9B6A4ED2B2B54C200313B52 /* OcorrenciasStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B6A4EC2B2B54C200313B52 /* OcorrenciasStorage.swift */; };
+		F9B6A4EF2B2B55F700313B52 /* Ocorrencia.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B6A4EE2B2B55F700313B52 /* Ocorrencia.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +105,8 @@
 		F9B3C3262B220DDE0032B4D5 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		F9B3C3282B220DF00032B4D5 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		F9B3C32B2B220E180032B4D5 /* RegisterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCoordinator.swift; sourceTree = "<group>"; };
+		F9B6A4EC2B2B54C200313B52 /* OcorrenciasStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OcorrenciasStorage.swift; sourceTree = "<group>"; };
+		F9B6A4EE2B2B55F700313B52 /* Ocorrencia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ocorrencia.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +278,8 @@
 				F98C15892B2A7F1200BA2911 /* NovaOcorrenciaCoordinator.swift */,
 				F98C158D2B2A9AF400BA2911 /* ChooseImage.swift */,
 				F98C15912B2AA4C900BA2911 /* NovaOcorrenciaViewModel.swift */,
+				F9B6A4EC2B2B54C200313B52 /* OcorrenciasStorage.swift */,
+				F9B6A4EE2B2B55F700313B52 /* Ocorrencia.swift */,
 			);
 			path = NovaOcorrencia;
 			sourceTree = "<group>";
@@ -435,7 +441,9 @@
 				D0E446952B0B80E2003E8809 /* ViewController.swift in Sources */,
 				D0DF46072B1A171600F26CAB /* ImageDefault.swift in Sources */,
 				F98C15902B2AA4BA00BA2911 /* HomeViewModel.swift in Sources */,
+				F9B6A4EF2B2B55F700313B52 /* Ocorrencia.swift in Sources */,
 				D0DF460E2B1A21C300F26CAB /* ButtonDefault.swift in Sources */,
+				F9B6A4ED2B2B54C200313B52 /* OcorrenciasStorage.swift in Sources */,
 				F98C158E2B2A9AF400BA2911 /* ChooseImage.swift in Sources */,
 				F9B3C3292B220DF00032B4D5 /* RegisterViewController.swift in Sources */,
 				F98C15922B2AA4C900BA2911 /* NovaOcorrenciaViewModel.swift in Sources */,

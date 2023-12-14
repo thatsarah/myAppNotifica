@@ -9,6 +9,8 @@ import UIKit
 
 class NovaOcorrenciaViewController: ViewControllerDefault {
     
+    var goToHomeHandler: (() -> Void)?
+    
     let viewModel: NovaOcorrenciaViewModel
         init(viewModel: NovaOcorrenciaViewModel) {
             self.viewModel = viewModel
@@ -25,7 +27,7 @@ class NovaOcorrenciaViewController: ViewControllerDefault {
         novaOcorrenciaView.onCameraTap = {
             ChooseImage().imagePicker(self) {myImage in novaOcorrenciaView.setImage(image: myImage)}
         }
-        
+                
         return novaOcorrenciaView
     }()
     
@@ -36,7 +38,13 @@ class NovaOcorrenciaViewController: ViewControllerDefault {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Nova Ocorrência"
-        
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        novaOcorrenciaView.saveButton.addTarget(self, action: #selector(saveOcorrencia), for: .touchUpInside)
+    }
+    
+    @objc private func saveOcorrencia() {
+        goToHomeHandler?()
+        Ocorrencia(title: novaOcorrenciaView.titleTextField.text ?? "", description: "", location: "", date: Date.now, status: "")
+        viewModel.
     }
 }

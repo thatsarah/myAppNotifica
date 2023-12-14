@@ -11,17 +11,21 @@ class NovaOcorrenciaView: UIView {
     
     var viewModel: NovaOcorrenciaViewModel
     
-    var onCameraTap:(() -> Void)?
+    var onCameraTap: (() -> Void)?
+    
+    var goToHomeHandler: (() -> Void)?
+    
     
      init(viewModel: NovaOcorrenciaViewModel) {
         self.viewModel = viewModel
         super.init(frame: .zero)
         self.backgroundColor = .viewBackgroundColor
+        setUpVisualElements()
     }
     
     lazy var myImage: UIImageView = {
         let view = UIImageView ()
-        view.image = UIImage(named: "CameraImage")
+        view.image = UIImage(named: "cameraImage")
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(cameraTap))
                 view.addGestureRecognizer(tapGestureRecognizer)
                 view.isUserInteractionEnabled = true
@@ -33,7 +37,7 @@ class NovaOcorrenciaView: UIView {
     
     lazy var descriptionTextField = TextFieldDefault(placeholder: "Descrição", keyboardType: .default, returnKeyType: .next)
     
-    lazy var localizationTextField = TextFieldDefault(placeholder: "Localização", keyboardType: .default, returnKeyType: .next)
+    lazy var locationTextField = TextFieldDefault(placeholder: "Localização", keyboardType: .default, returnKeyType: .next)
     
     lazy var statusTextField = TextFieldDefault(placeholder: "Status", keyboardType: .default, returnKeyType: .done)
     
@@ -41,12 +45,12 @@ class NovaOcorrenciaView: UIView {
     
     func setUpVisualElements() {
         
-        self.addSubview(myImage)
-        self.addSubview(titleTextField)
-        self.addSubview(descriptionTextField)
-        self.addSubview(localizationTextField)
-        self.addSubview(statusTextField)
-        self.addSubview(saveButton)
+        addSubview(myImage)
+        addSubview(titleTextField)
+        addSubview(descriptionTextField)
+        addSubview(locationTextField)
+        addSubview(statusTextField)
+        addSubview(saveButton)
         
         
         NSLayoutConstraint.activate([
@@ -69,15 +73,15 @@ class NovaOcorrenciaView: UIView {
             descriptionTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
             descriptionTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
             
-            localizationTextField.widthAnchor.constraint(equalToConstant: 374),
-            localizationTextField.heightAnchor.constraint(equalToConstant: 60),
-            localizationTextField.topAnchor.constraint(equalTo: descriptionTextField.bottomAnchor, constant: 5),
-            localizationTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-            localizationTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
+            locationTextField.widthAnchor.constraint(equalToConstant: 374),
+            locationTextField.heightAnchor.constraint(equalToConstant: 60),
+            locationTextField.topAnchor.constraint(equalTo: descriptionTextField.bottomAnchor, constant: 5),
+            locationTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            locationTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
             
             statusTextField.widthAnchor.constraint(equalToConstant: 374),
             statusTextField.heightAnchor.constraint(equalToConstant: 60),
-            statusTextField.topAnchor.constraint(equalTo: localizationTextField.bottomAnchor, constant: 5),
+            statusTextField.topAnchor.constraint(equalTo: locationTextField.bottomAnchor, constant: 5),
             statusTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
             statusTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
             
@@ -96,10 +100,13 @@ class NovaOcorrenciaView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc
-     private func cameraTap () {
+    @objc private func cameraTap() {
          self.onCameraTap?()
      }
+    
+    @objc private func goToHome() {
+        goToHomeHandler?()
+    }
      
      func setImage (image: UIImage){
          myImage.image = image
